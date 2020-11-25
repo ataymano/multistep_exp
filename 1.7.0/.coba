@@ -1,0 +1,4 @@
+{
+    "file_cache": { "type":"disk", "directory": "coba_cache" },
+    "processes": 1
+}

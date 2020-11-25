@@ -1,0 +1,10 @@
+  
+{
+    "templates"   : { "openml": { "type":"classification", "from": {"format":"openml", "id":"$id", "md5_checksum":"$md5"} }},
+    "batches"     : { "size":1, "max":2},
+    "ignore_first": false,
+    "shuffle"     : [777,888,999,1010,1111,1212],
+    "simulations" : [
+        {"template":"openml", "$md5":"da4174eec2fd552cb608e78b9397ab67", "$id":6}
+    ]
+}
