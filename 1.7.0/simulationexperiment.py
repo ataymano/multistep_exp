@@ -23,7 +23,6 @@ def advantageLearner():
     from advantage import Advantage
     return Advantage(seed=10, flags='--coin', learner=baseLearner)
 
-
 def get_context(means, t):
     return (str(t % means.shape[0]), str(coba.random.randint(0, means.shape[1] - 1)))
 
@@ -35,8 +34,8 @@ def get_reward(means, c, a):
 
 if __name__ == '__main__':
     nsteps = 1
-    npeople = 8
-    nactions = 8
+    npeople = 4
+    nactions = 4
 
     means = np.ndarray(shape = (nsteps, npeople, nactions), buffer = np.array(coba.random.randoms(nsteps * npeople * nactions)))
     
@@ -67,15 +66,7 @@ if __name__ == '__main__':
     #create the learner factories
     learner_factories = [
         RandomLearner(seed=10),
-    #    EpsilonLearner(epsilon=0.025, seed=10),
-    #    UcbTunedLearner(seed=10),
         VowpalLearner(epsilon=0.2, seed=10),
-        Batched(delay=8, batchsize=1, learner=baseLearner),
-    #    Batched(delay=8, batchsize=2, learner=baseLearner),
-    #    Batched(delay=8, batchsize=4, learner=baseLearner),
-    #    Batched(delay=8, batchsize=8, learner=baseLearner),
-    #    VowpalLearner(epsilon=0.025, is_adf=False, seed=10),
-    #    VowpalLearner(bag=5, seed=10),
     ]
 
     benchmark.evaluate(learner_factories).standard_plot()
